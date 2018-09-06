@@ -1,9 +1,11 @@
 {
   "name": "react-native-adaptive-stylesheet",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "An adaptive stylesheet helper for all size of devices",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.js",
   "scripts": {
+    "build": "rm -rf dist && tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -27,7 +29,7 @@
     "url": "https://github.com/tbingooo/react-native-adaptive-stylesheet/issues"
   },
   "homepage": "https://github.com/tbingooo/react-native-adaptive-stylesheet#readme",
-  "dependencies": {
-    "react-native": "^0.56.0"
+  "devDependencies": {
+    "typescript": "^3.0.3"
   }
 }
