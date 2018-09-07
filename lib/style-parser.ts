@@ -14,16 +14,15 @@ export default class StyleParser {
     this.guidelineBaseWidth = width;
   }
 
-  private scaleView(size: number) {
+  private scaleView = (size: number) => {
     return WINDOW_WIDTH / this.guidelineBaseWidth * size;
   }
 
-  private scaleFont(size: number) {
+  private scaleFont = (size: number) => {
     return size * PixelRatio.getFontScale();
   }
 
   public parse<T extends StyleSheet.NamedStyles<T>>(style: T): T {
-    deepMap(style, this.scaleView, this.scaleFont);
-    return style;
+    return deepMap(style, this.scaleView, this.scaleFont);
   }
 }

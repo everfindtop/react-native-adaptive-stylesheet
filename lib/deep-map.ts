@@ -46,7 +46,7 @@ const parseableFontProperty: {
 
 const mapObject = (obj: any, fn: any) => Object.keys(obj).reduce(
   (res: any, key) => {
-    res[key] = fn(obj[key]);
+    res[key] = fn(key, obj[key]);
     return res;
   }, {});
 
@@ -54,34 +54,31 @@ function isObject<T>(val: T): boolean {
   return !!(val && typeof val === 'object');
 }
 
-function noop(val: any) {
-  return val;
-}
-
-export default function deepMap<T extends StyleSheet.NamedStyles<T>>(obj: T, viewScaler: ScaleFunc, fontScaler: ScaleFunc) {
-  function scaleValue(val: keyof T) {
-    let scaleFunc = noop;
-    if (parseableStyleProperty[val as string]) {
+export default function deepMap<T extends StyleSheet.NamedStyles<T>>(obj: T, viewScaler: ScaleFunc, fontScaler: ScaleFunc): T {
+  function scaleValue(key: string, val: T) {
+    let scaleFunc;
+    if (parseableStyleProperty[key]) {
       scaleFunc = viewScaler;
-    } else if (parseableFontProperty[val as string]) {
+    } else if (parseableFontProperty[key]) {
       scaleFunc = fontScaler;
     }
     let value: any = val;
-    if (typeof val === 'string' || val instanceof String) {
+    if ((typeof val === 'string' || val instanceof String) && val.match(/^\d+(\.\d+)?$/)) {
       value = Number(val);
     }
-    return scaleFunc(value as number);
+    if ((typeof value === 'number' || value instanceof Number) && scaleFunc) {
+      return scaleFunc(value as number);
+    }
+    return value;
+    
   }
-  const deepMapper = (val: T) => {
+  const deepMapper = (key: string, val: T) => {
     if (isObject(val)) {
-      deepMap(val, viewScaler, fontScaler);
+      return deepMap(val, viewScaler, fontScaler);
     } else {
-      return scaleValue(val);
+      return scaleValue(key, val);
     }
   };
-  if (Array.isArray(obj)) {
-    return obj.map(deepMapper);
-  }
   if (isObject(obj)) {
     return mapObject(obj, deepMapper);
   }
