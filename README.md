@@ -33,7 +33,7 @@ The api of react-native-adaptive-stylesheet is just like StyleSheet of React Nat
 
 The above four properities are the same as React Native StyleSheet.  
 
-* setGuidelineBaseWidth
+* setGuidelineBaseWidth  
 Set the guideline screen width of your designer's layout. All calculation of scaling will be based on the guideline width you set.
 ```js
 import StyleSheet from 'react-native-adaptive-stylesheet';
