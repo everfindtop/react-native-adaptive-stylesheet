@@ -6,7 +6,7 @@
   "types": "dist/index.d.js",
   "scripts": {
     "build": "rm -rf dist && tsc",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --coverage"
   },
   "repository": {
     "type": "git",
@@ -14,6 +14,22 @@
   },
   "peerDependencies": {
     "react-native": "*"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.ts$": "ts-jest",
+      "^.+\\.js$": "babel-jest"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(js|ts)$",
+    "moduleFileExtensions": [
+      "ts",
+      "js"
+    ],
+    "globals": {
+      "ts-jest": {
+        "useBabelrc": true
+      }
+    }
   },
   "keywords": [
     "react native",
@@ -30,6 +46,13 @@
   },
   "homepage": "https://github.com/tbingooo/react-native-adaptive-stylesheet#readme",
   "devDependencies": {
+    "@types/jest": "^23.3.1",
+    "babel-core": "^6.26.3",
+    "babel-jest": "^23.4.2",
+    "babel-preset-env": "^1.7.0",
+    "jest": "^23.5.0",
+    "jest-cli": "^23.5.0",
+    "ts-jest": "^23.1.4",
     "typescript": "^3.0.3"
   }
 }
