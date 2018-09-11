@@ -38,16 +38,20 @@ The api of react-native-adaptive-stylesheet is just like StyleSheet of React Nat
 The above four properities are the same as React Native StyleSheet.  
 
 * setGuidelineBaseWidth  
-Set the guideline screen width of your designer's layout. All calculation of scaling will be based on the guideline width you set.
+
+Set the guideline screen width of your designer's layout, default is 375. All calculation of scaling will be based on the guideline width you set.
 ```js
 import StyleSheet from 'react-native-adaptive-stylesheet';
 StyleSheet.setGuidelineBaseWidth(375);
 ```
 
 * configure(options)  
+
 Set global configuratioin.  
-  - options.width Set the guideline screen width of your designer's layout
-  - options.scaleFont If true, all font size will scale according to screen size just like other style properties. If false, scale according to PixelRatio.getFontScale(). Default is false.
+1. options.width  
+  Set the guideline screen width of your designer's layout
+1. options.scaleFont  
+  If true, all font size will scale according to screen size just like other style properties. If false, scale according to PixelRatio.getFontScale(). Default is false.
 ```js
 import StyleSheet from 'react-native-adaptive-stylesheet';
 StyleSheet.configure({
