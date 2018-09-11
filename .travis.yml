@@ -5,3 +5,4 @@ intall:
   - npm install
 script:
   - npm run test
+  - npm run coveralls

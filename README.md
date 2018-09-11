@@ -1,5 +1,9 @@
 # react-native-adaptive-stylesheet
 
+![npm version](https://badge.fury.io/js/react-native-adaptive-stylesheet.svg)
+![build status](https://travis-ci.org/TBingooo/react-native-adaptive-stylesheet.svg?branch=master)
+![coverage](https://coveralls.io/repos/github/TBingooo/react-native-adaptive-stylesheet/badge.svg?branch=master)
+
 A stylesheet for scaling the size of your app's UI across different sized devices。  
 
 ## Installation
