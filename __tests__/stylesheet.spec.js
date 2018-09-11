@@ -17,10 +17,12 @@ test('scaleable property get scaled', () => {
             borderRadius: 10,
         },
     };
+    // default guidelineBaseWidth is 375 and mock window.width is 750
     expect(StyleSheet.create(style).container.marginTop).toBe(60 * 750 / 375);
     expect(StyleSheet.create(style).container.borderWidth).toBe(1 * 750 / 375);
     expect(StyleSheet.create(style).container.borderRadius).toBe(10 * 750 / 375);
-    expect(StyleSheet.create(style).container.fontSize).toBe(20);
+    // mock fontScale is 2
+    expect(StyleSheet.create(style).container.fontSize).toBe(40);
 });
 
 test('not scaleable property can not got scaled', () => {
@@ -48,7 +50,7 @@ test('setGuildlineBaseWidth works', () => {
     expect(StyleSheet.create(style).container.marginTop).toBe(60);
     expect(StyleSheet.create(style).container.borderWidth).toBe(1);
     expect(StyleSheet.create(style).container.borderRadius).toBe(10);
-    expect(StyleSheet.create(style).container.fontSize).toBe(20);
+    expect(StyleSheet.create(style).container.fontSize).toBe(40);
     expect(StyleSheet.create(style).container.width).toBe(123.5);
 });
 
@@ -80,4 +82,31 @@ test('invalid string value can not be scaled', () => {
 test('no abject style', () => {
     const style = 'no a object';
     expect(StyleSheet.create(style)).toBe(style);
+});
+
+test('width configuration', () => {
+    const config = {
+        width: 375,
+    };
+    StyleSheet.configure(config);
+    const style = {
+        container: {
+            marginTop: 60,
+        },
+    };
+    expect(StyleSheet.create(style).container.marginTop).toBe(60 * 2);
+});
+
+test('scaleFont configuration', () => {
+    StyleSheet.setGuidelineBaseWidth(750);
+    const config = {
+        scaleFont: true,
+    };
+    StyleSheet.configure(config);
+    const style = {
+        container: {
+            fontSize: 60,
+        },
+    };
+    expect(StyleSheet.create(style).container.fontSize).toBe(60);
 });

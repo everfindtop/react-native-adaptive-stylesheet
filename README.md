@@ -40,5 +40,17 @@ import StyleSheet from 'react-native-adaptive-stylesheet';
 StyleSheet.setGuidelineBaseWidth(375);
 ```
 
+* configure(options)  
+Set global configuratioin.  
+  - options.width Set the guideline screen width of your designer's layout
+  - options.scaleFont If true, all font size will scale according to screen size just like other style properties. If false, scale according to PixelRatio.getFontScale(). Default is false.
+```js
+import StyleSheet from 'react-native-adaptive-stylesheet';
+StyleSheet.configure({
+  width: 375,
+  scaleFont: true,
+});
+```
+
 * create  
 The same as React Native `StyleSheet.create`, except doing scaling internally.

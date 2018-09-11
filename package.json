@@ -1,6 +1,6 @@
 {
   "name": "react-native-adaptive-stylesheet",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "An adaptive stylesheet helper for all size of devices",
   "main": "dist/index.js",
   "types": "dist/index.d.js",
@@ -54,5 +54,6 @@
     "jest-cli": "^23.5.0",
     "ts-jest": "^23.1.4",
     "typescript": "^3.0.3"
-  }
+  },
+  "dependencies": {}
 }

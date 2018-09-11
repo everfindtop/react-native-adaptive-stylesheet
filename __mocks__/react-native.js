@@ -11,7 +11,7 @@ const reactNative = {
     },
     PixelRatio: {
         get: () => 2,
-        getFontScale: () => 1,
+        getFontScale: () => 2,
     },
 };
 

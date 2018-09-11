@@ -5,13 +5,19 @@ const WINDOW_WIDTH = Dimensions.get('window').width;
 
 export default class StyleParser {
   private guidelineBaseWidth: number = 375;
+  private shouldScaleFont: boolean = false;
 
-  constructor(guidelineBaseWidth: number = 375) {
+  constructor(guidelineBaseWidth: number = 375, scaleFont: boolean = false) {
     this.guidelineBaseWidth = guidelineBaseWidth;
+    this.shouldScaleFont = scaleFont;
   }
 
   public setGuidelineBaseWidth(width: number) {
     this.guidelineBaseWidth = width;
+  }
+
+  public setScaleFont(scale: boolean) {
+    this.shouldScaleFont = scale;
   }
 
   private scaleView = (size: number) => {
@@ -19,6 +25,9 @@ export default class StyleParser {
   }
 
   private scaleFont = (size: number) => {
+    if (this.shouldScaleFont) {
+      return this.scaleView(size);
+    }
     return size * PixelRatio.getFontScale();
   }
 
