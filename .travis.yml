@@ -1,0 +1,4 @@
+intall:
+  - npm install
+script:
+  - npm run test
