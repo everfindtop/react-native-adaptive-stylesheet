@@ -1,6 +1,6 @@
 {
   "name": "react-native-adaptive-stylesheet",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "An adaptive stylesheet helper for all size of devices",
   "main": "dist/index.js",
   "types": "dist/index.d.js",
@@ -33,8 +33,10 @@
     }
   },
   "keywords": [
-    "react-native",
+    "react native",
     "adaptive",
+    "responsive",
+    "layout",
     "stylesheet"
   ],
   "author": {
