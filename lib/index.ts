@@ -12,7 +12,7 @@ class StyleSheet {
   public absoluteFillObject = RNStyleSheet.absoluteFillObject;
   public flatten = RNStyleSheet.flatten;
 
-  public setGuidelineBaseWidth (width: number) {
+  public setGuidelineBaseWidth(width: number) {
     this.parser.setGuidelineBaseWidth(width);
   }
 
