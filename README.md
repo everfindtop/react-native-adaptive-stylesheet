@@ -61,4 +61,25 @@ StyleSheet.configure({
 ```
 
 * create  
-The same as React Native `StyleSheet.create`, except doing scaling internally.
+The same as React Native `StyleSheet.create`, except doing scaling internally.  
+
+```javascript
+import StyleSheet from 'react-native-adaptive-stylesheet';
+export default StyleSheet.create({
+  container: {
+    width: 375,
+    borderWidth: StyleSheet.hairlineWidth,
+    fontSize: 18,
+  },
+});
+```
+
+* scaleView / scaleFont  
+A useful helper in component's style propertity.  
+```javascript
+import StyleSheet from 'react-native-adaptive-stylesheet';
+<View style={{ width: StyleSheet.scaleView(60) }}>
+  <Text style={{ fontSize: StyleSheet.scaleFont(18) }}>This is am example!</Text>
+</View>
+```
+
