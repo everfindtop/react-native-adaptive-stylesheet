@@ -30,6 +30,14 @@ class StyleSheet {
     return RNStyleSheet.create(newStyle);
   }
 
+  public scaleView(size: number) {
+    return this.parser.scaleView(size);
+  }
+
+  public scaleFont(size: number) {
+    return this.parser.scaleFont(size);
+  }
+
   private parser: Parser = new Parser();
 }
 

@@ -20,11 +20,14 @@ export default class StyleParser {
     this.shouldScaleFont = scale;
   }
 
-  private scaleView = (size: number) => {
+  public scaleView = (size: number) => {
+    if (size === StyleSheet.hairlineWidth) {
+      return size;
+    }
     return WINDOW_WIDTH / this.guidelineBaseWidth * size;
   }
 
-  private scaleFont = (size: number) => {
+  public scaleFont = (size: number) => {
     if (this.shouldScaleFont) {
       return this.scaleView(size);
     }

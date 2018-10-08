@@ -110,3 +110,31 @@ test('scaleFont configuration', () => {
     };
     expect(StyleSheet.create(style).container.fontSize).toBe(60);
 });
+
+test('scaleView', () => {
+    StyleSheet.setGuidelineBaseWidth(750);
+    expect(StyleSheet.scaleView(60)).toBe(60);
+    expect(StyleSheet.scaleView(StyleSheet.hairlineWidth)).toBe(StyleSheet.hairlineWidth);
+});
+
+test('scaleFont', () => {
+    StyleSheet.setGuidelineBaseWidth(750);
+    StyleSheet.configure({
+        scaleFont: false,
+    });
+    expect(StyleSheet.scaleFont(60)).toBe(60 * 2);
+});
+
+test('hairlineWidth in create()', () => {
+    StyleSheet.setGuidelineBaseWidth(750);
+    StyleSheet.configure({
+        shouldScaleFont: false,
+    });
+    const style = {
+        container: {
+            width: StyleSheet.hairlineWidth,
+        },
+    };
+    expect(StyleSheet.create(style).container.width).toBe(StyleSheet.hairlineWidth);
+});
+
