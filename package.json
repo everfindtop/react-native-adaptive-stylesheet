@@ -6,6 +6,7 @@
   "types": "dist/index.d.js",
   "scripts": {
     "build": "rm -rf dist && tsc",
+    "prepublish": "npm run test && npm run build",
     "test": "jest --coverage",
     "coveralls": "cat ./coverage/lcov.info | node node_modules/.bin/coveralls"
   },
