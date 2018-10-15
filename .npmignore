@@ -5,3 +5,4 @@ lib
 .travis.yml
 tsconfig.json
 tslint.json
+coverage
