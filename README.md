@@ -83,3 +83,14 @@ import StyleSheet from 'react-native-adaptive-stylesheet';
 </View>
 ```
 
+## Development
+
+```bash
+git clone git@github.com:TBingooo/react-native-adaptive-stylesheet.git
+cd react-native-adaptive-stylesheet
+npm i
+```
+
+Don't forget to install `@types/react-native` and `react-native`.
+
+

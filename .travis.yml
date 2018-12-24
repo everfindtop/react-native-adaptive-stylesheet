@@ -3,6 +3,7 @@ node_js:
   - "node"
 intall:
   - npm install
+  - npm i react-native @types/react-native --no-save
 script:
   - npm run test
   - npm run coveralls
