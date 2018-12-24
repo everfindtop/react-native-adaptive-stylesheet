@@ -2,8 +2,7 @@ language: node_js
 node_js:
   - "node"
 intall:
-  - npm install
-  - npm install react-native @types/react-native --no-save
+  - npm ci
 script:
   - npm run test
   - npm run coveralls
