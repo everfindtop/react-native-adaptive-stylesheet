@@ -1,6 +1,6 @@
 {
   "name": "react-native-adaptive-stylesheet",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "An adaptive stylesheet helper for all size of devices",
   "main": "dist/index.js",
   "types": "dist/index.d.js",
@@ -24,14 +24,16 @@
     },
     "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(js|ts)$",
     "moduleFileExtensions": [
-      "ts",
-      "js"
+      "js",
+      "ts"
     ],
     "globals": {
       "ts-jest": {
-        "useBabelrc": true
+        "babelConfig": ".babelrc"
       }
-    }
+    },
+    "preset": "ts-jest/presets/js-with-babel",
+    "testMatch": null
   },
   "keywords": [
     "react native",
